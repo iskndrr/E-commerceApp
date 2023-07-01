@@ -1,1 +1,69 @@
-<p>register works!</p>
+<div class="container my-5">
+  <div class="card shadow-lg min-vh75">
+    <div class="row card-body">
+      <div class="col-md-6">
+        <div class="img"></div>
+      </div>
+      <div class="col-md-6 align-self-center">
+        <div class="card shadow">
+          <div class="card-header text-center">
+            <h2 class="text-success">Register</h2>
+          </div>
+          <form class="card-body">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingName"
+                placeholder="Iskandar"
+              />
+              <label for="floatingName">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingrePassword"
+                placeholder="rePassword"
+              />
+              <label for="floatingrePassword">rePassword</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="tel"
+                class="form-control"
+                id="floatingPhone"
+                placeholder="01210825176"
+              />
+              <label for="floatingPhone">Phone Number</label>
+            </div>
+
+            <button class="btn mt-3 w-100 btn-success">Register</button>
+            <div class="card-footer text-center mt-3">
+              <!-- <a routerLink="" class="nav-link text-danger">Forget Password</a> -->
+              <span class="text-muted">Already Have an Account? <a class="nav-link d-inline text-success" routerLink="/login">LogIn</a></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

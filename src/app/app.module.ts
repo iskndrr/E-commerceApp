@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +22,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CatigoryComponent } from './components/catigory/catigory.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { InputTextModule } from 'primeng/inputtext';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +50,11 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     ConfirmPopupModule,
     TagModule,
     CardModule,
+    InputTextModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
