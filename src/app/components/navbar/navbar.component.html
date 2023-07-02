@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul *ngIf="isLogedIn" class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a
             class="nav-link active"
@@ -59,32 +59,32 @@
         /> -->
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item mx-2">
+        <li *ngIf="isLogedIn" class="nav-item mx-2">
           <a class="nav-link text-success" routerLink="/profile">
             <i class="pi pi-user" style="font-size: 1.1rem"></i>
           </a>
         </li>
-        <li class="nav-item mx-2">
+        <li *ngIf="isLogedIn" class="nav-item mx-2">
           <a class="nav-link text-success" routerLink="/Cart">
             <i class="pi pi-shopping-bag" style="font-size: 1.1rem"></i>
           </a>
         </li>
-        <li class="nav-item mx-2">
+        <li *ngIf="!isLogedIn" class="nav-item mx-2">
           <a class="nav-link text-success" routerLink="/login">
             <i class="pi pi-sign-in" style="font-size: 1.2rem"> LogIn</i>
           </a>
         </li>
-        <!-- <li class="nav-item mx-2">
+        <li *ngIf="!isLogedIn" class="nav-item mx-2">
           <a class="nav-link text-success" routerLink="/register">
             <i class="pi pi-user-plus" style="font-size: 1.2rem"> Register</i>
 
           </a>
-        </li> -->
-        <!-- <li class="nav-item mx-2">
-          <a class="nav-link text-danger" >
+        </li>
+        <li (click)="logOut()" *ngIf="isLogedIn" class="nav-item mx-2">
+          <a routerLink="" class="nav-link text-danger" >
             <i class="pi pi-sign-out" style="font-size: 1.1rem"> LogOut</i>
           </a>
-        </li> -->
+        </li>
       </ul>
     </div>
   </div>

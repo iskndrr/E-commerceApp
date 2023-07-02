@@ -60,7 +60,7 @@ import { ToastModule } from 'primeng/toast';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
 
   ],
   providers: [],

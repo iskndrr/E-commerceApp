@@ -16,7 +16,11 @@ export class RegisterComponent {
     private _authService: AuthService,
     private messageService: MessageService,
     private _router:Router
-  ) {}
+  ) {
+    if(localStorage.getItem('userToken') != null){
+      _router.navigate(['/home'])
+    }
+  }
   registerForm: FormGroup = new FormGroup({
     name: new FormControl('', [
       Validators.required,

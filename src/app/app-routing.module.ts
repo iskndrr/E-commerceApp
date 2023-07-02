@@ -8,14 +8,15 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductsComponent } from './components/products/products.component';
+import { authGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, title: 'Home' },
-  { path: 'profile', component: ProfileComponent, title: 'Profile' },
-  { path: 'catigory', component: CatigoryComponent, title: 'Catigory' },
-  { path: 'products', component: ProductsComponent, title: 'Products' },
-  { path: 'brands', component: BrandsComponent, title: 'Brands' },
+  { path: 'home', canActivate:[authGuard], component: HomeComponent, title: 'Home' },
+  { path: 'profile' ,  canActivate:[authGuard],component: ProfileComponent, title: 'Profile' },
+  { path: 'catigory',  canActivate:[authGuard],component: CatigoryComponent, title: 'Catigory' },
+  { path: 'products',  canActivate:[authGuard],component: ProductsComponent, title: 'Products' },
+  { path: 'brands',  canActivate:[authGuard], component: BrandsComponent, title: 'Brands' },
   { path: 'login', component: LogInComponent, title: 'LogIn' },
   { path: 'register', component: RegisterComponent, title: 'Register' },
   {path:"**", component:NotfoundComponent,title:"Error 404"}
