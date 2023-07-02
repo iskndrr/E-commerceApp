@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // background-color: #f3f3f3bb;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator button {
+  background-color: #198759;
+  width: 0.6rem;
+  height: 0.6rem;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 50%;
+}

@@ -1,0 +1,47 @@
+<!-- <div class="card mx-3 flex justify-content-center">
+  <p-card [header]="product.title.split(' ').splice(0,2).join()" [subheader]="product.brand.name.split(' ').splice(0,2).join()" >
+      <ng-template class="card-header" pTemplate="header">
+          <img alt="Card" class=""  [src]="product.imageCover" />
+      </ng-template>
+      <p>
+          hi
+      </p>
+      <ng-template pTemplate="footer " class="text-center d-flex  w-100 justify-content-center">
+          <p-button class=" w-100" label="Add to Cart" icon="pi pi-shopping-cart" ></p-button>
+      </ng-template>
+  </p-card>
+</div> -->
+<div class="card mx-2">
+  <div class="position-relative">
+    <img [src]="product.imageCover" class="card-img-top shadow-sm" alt="..." />
+    <button class="btn position-absolute p-3 text-success  top-0 end-0">
+      <i
+        class="pi pi-heart fs-4 "
+      ></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <div
+      class="d-flex my-2 fst-italic align-items-center justify-content-between"
+    >
+      <h5 class="card-title fs-5 fw-medium m-0 text-success">
+        {{ product.title.split(" ").splice(0, 2).join(" ") }}
+      </h5>
+
+      <span class="text-muted fs-6 m-0">{{ product.price | currency }}</span>
+    </div>
+    <div class="d-flex my-3 justify-content-between align-items-center">
+      <p class="card-text m-0 text-muted">
+        {{ product.brand.name.split(" ").splice(0, 2).join() }}
+      </p>
+      <div class="text-warning d-flex align-items-center">
+        <i class="pi pi-heart-fill"></i
+        ><span> ({{ product.ratingsAverage }})</span>
+      </div>
+    </div>
+    <a routerLink="" class="btn w-100 rounded-pill btn-outline-success">
+      <i class="pi pi-cart-plus"></i>
+      Add To Cart</a
+    >
+  </div>
+</div>

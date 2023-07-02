@@ -30,6 +30,8 @@ import {MatInputModule} from '@angular/material/input';
 
 import {HttpClientModule} from '@angular/common/http'
 import { ToastModule } from 'primeng/toast';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,8 @@ import { ToastModule } from 'primeng/toast';
     CatigoryComponent,
     BrandsComponent,
     NotfoundComponent,
+    ProductCardComponent,
+    FeaturedProductComponent,
 
   ],
   imports: [

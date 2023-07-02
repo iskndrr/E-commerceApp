@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/interfaces/product';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -6,39 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  responsiveOptions: any[] | undefined;
+  allProduct: Product[] = [];
+  constructor(private _productService: ProductService) {}
   ngOnInit() {
-    // this.productService.getProductsSmall().then((products) => {
-    //   this.products = products;
-    // });
-
-    this.responsiveOptions = [
-      {
-        breakpoint: '1199px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '991px',
-        numVisible: 2,
-        numScroll: 1,
-      },
-      {
-        breakpoint: '767px',
-        numVisible: 1,
-        numScroll: 1,
-      },
-    ];
+    this.getProduct();
   }
-
-  // getSeverity(status: string) {
-  //   switch (status) {
-  //     case 'INSTOCK':
-  //       return 'success';
-  //     case 'LOWSTOCK':
-  //       return 'warning';
-  //     case 'OUTOFSTOCK':
-  //       return 'danger';
-  //   }
-  // }
+  getProduct() {
+    this._productService.getAllProduct().subscribe({
+      next: (res) => {
+        console.log(res, res.data);
+        this.allProduct = res.data;
+        console.log(this.allProduct);
+      },
+    });
+  }
 }
