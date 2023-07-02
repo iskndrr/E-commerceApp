@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-log-in',
@@ -8,5 +8,12 @@ import {FormControl, Validators} from '@angular/forms';
 
 })
 export class LogInComponent {
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('',[Validators.required,Validators.pattern(/^[A-Z][a-z0-9]{3,10}$/)]),
+  });
 
+  logIn(form: FormGroup) {
+    console.log(form);
+  }
 }

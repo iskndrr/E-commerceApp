@@ -27,6 +27,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import {MatInputModule} from '@angular/material/input';
+
+import {HttpClientModule} from '@angular/common/http'
+import { ToastModule } from 'primeng/toast';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,8 @@ import {MatInputModule} from '@angular/material/input';
     ProfileComponent,
     CatigoryComponent,
     BrandsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,9 @@ import {MatInputModule} from '@angular/material/input';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastModule
 
   ],
   providers: [],

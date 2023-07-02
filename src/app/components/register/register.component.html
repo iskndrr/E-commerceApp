@@ -9,57 +9,190 @@
           <div class="card-header text-center">
             <h2 class="text-success">Register</h2>
           </div>
-          <form class="card-body">
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="register(registerForm)"
+            class="card-body"
+          >
             <div class="form-floating mb-3">
               <input
                 type="text"
                 class="form-control"
-                id="floatingName"
+                formControlName="name"
+                id="name"
                 placeholder="Iskandar"
               />
-              <label for="floatingName">Name</label>
+              <label for="name">Name</label>
+            </div>
+            <div
+              *ngIf="
+                registerForm.get('name')?.errors &&
+                registerForm.get('name')?.touched
+              "
+              class="alert alert-danger mt-2"
+            >
+              <p
+                *ngIf="registerForm.get('name')?.getError('required')"
+                class="m-0"
+              >
+                Name is required
+              </p>
+              <p
+                *ngIf="registerForm.get('name')?.getError('pattern')"
+                class="m-0"
+              >
+                Name pattern is Invalid
+              </p>
             </div>
             <div class="form-floating mb-3">
               <input
                 type="email"
                 class="form-control"
-                id="floatingInput"
+                formControlName="email"
+                id="email"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput">Email address</label>
+              <label for="email">Email address</label>
+            </div>
+            <div
+              *ngIf="
+                registerForm.get('email')?.errors &&
+                registerForm.get('email')?.touched
+              "
+              class="alert alert-danger mt-2"
+            >
+              <p
+                *ngIf="registerForm.get('email')?.getError('required')"
+                class="m-0"
+              >
+                email is required
+              </p>
+              <p
+                *ngIf="registerForm.get('email')?.getError('email')"
+                class="m-0"
+              >
+                email pattern is Invalid
+              </p>
             </div>
             <div class="form-floating mb-3">
               <input
                 type="password"
                 class="form-control"
-                id="floatingPassword"
+                formControlName="password"
+                id="password"
                 placeholder="Password"
               />
-              <label for="floatingPassword">Password</label>
+              <label for="password">Password</label>
+            </div>
+            <div
+              *ngIf="
+                registerForm.get('password')?.errors &&
+                registerForm.get('password')?.touched
+              "
+              class="alert alert-danger mt-2"
+            >
+              <p
+                *ngIf="registerForm.get('password')?.getError('required')"
+                class="m-0"
+              >
+                Password is required
+              </p>
+              <p
+                *ngIf="registerForm.get('password')?.getError('pattern')"
+                class="m-0"
+              >
+                Password pattern is Invalid
+              </p>
             </div>
             <div class="form-floating mb-3">
               <input
                 type="password"
                 class="form-control"
-                id="floatingrePassword"
+                formControlName="rePassword"
+                id="rePassword"
                 placeholder="rePassword"
               />
-              <label for="floatingrePassword">rePassword</label>
+              <label for="rePassword">rePassword</label>
+            </div>
+            <div
+              *ngIf="
+                registerForm.get('rePassword')?.errors &&
+                registerForm.get('rePassword')?.touched
+              "
+              class="alert alert-danger mt-2"
+            >
+              <p
+                *ngIf="registerForm.get('rePassword')?.getError('required')"
+                class="m-0"
+              >
+                rePassword is required
+              </p>
+              <p
+                *ngIf="registerForm.get('rePassword')?.getError('pattern')"
+                class="m-0"
+              >
+                rePassword pattern is Invalid
+              </p>
             </div>
             <div class="form-floating">
               <input
                 type="tel"
                 class="form-control"
-                id="floatingPhone"
+                formControlName="phone"
+                id="phone"
                 placeholder="01210825176"
               />
-              <label for="floatingPhone">Phone Number</label>
+              <label for="phone">Phone Number</label>
             </div>
-
-            <button class="btn mt-3 w-100 btn-success">Register</button>
+            <div
+              *ngIf="
+                registerForm.get('phone')?.errors &&
+                registerForm.get('phone')?.touched
+              "
+              class="alert alert-danger mt-2"
+            >
+              <p
+                *ngIf="registerForm.get('phone')?.getError('required')"
+                class="m-0"
+              >
+                Phone is required
+              </p>
+              <p
+                *ngIf="registerForm.get('phone')?.getError('pattern')"
+                class="m-0"
+              >
+                Phone pattern is Invalid
+              </p>
+            </div>
+            <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'500ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+            <!-- <button
+              type="button"
+              pButton
+              pRipple
+              (click)="showError()"
+              label="Error"
+              class="p-button-danger"
+            ></button> -->
+            <button
+              [disabled]="registerForm.invalid"
+              type="submit"
+              class="btn mt-3 w-100 btn-success"
+            >
+              <i
+                *ngIf="isLoading"
+                class="pi pi-spin pi-spinner"
+                style="font-size: 2rem"
+              ></i>
+              <span *ngIf="!isLoading">Register</span>
+            </button>
             <div class="card-footer text-center mt-3">
               <!-- <a routerLink="" class="nav-link text-danger">Forget Password</a> -->
-              <span class="text-muted">Already Have an Account? <a class="nav-link d-inline text-success" routerLink="/login">LogIn</a></span>
+              <span class="text-muted"
+                >Already Have an Account?
+                <a class="nav-link d-inline text-success" routerLink="/login"
+                  >LogIn</a
+                ></span
+              >
             </div>
           </form>
         </div>

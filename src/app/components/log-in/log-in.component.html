@@ -9,27 +9,37 @@
           <div class="card-header text-center">
             <h2 class="text-success">LogIn</h2>
           </div>
-          <form class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="logIn(loginForm)" class="card-body">
             <div class="form-floating mb-3">
               <input
                 type="email"
                 class="form-control"
-                id="floatingInput"
+                formControlName="email"
+                id="email"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput">Email address</label>
+              <label for="email">Email address</label>
             </div>
-            <div class="form-floating">
+            <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched " class="alert alert-danger mt-2">
+              <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0">email is required</p>
+              <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0">email pattern is Invalid</p>
+            </div>
+            <div class="form-floating ">
               <input
                 type="password"
                 class="form-control"
-                id="floatingPassword"
+                formControlName="password"
+                id="password"
                 placeholder="Password"
               />
-              <label for="floatingPassword">Password</label>
+              <label for="password">Password</label>
+            </div>
+            <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched " class="alert alert-danger mt-2">
+              <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0">Password is required</p>
+              <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0">Password pattern is Invalid</p>
             </div>
 
-            <button class="btn mt-3 w-100 btn-success">LogIn</button>
+            <button [disabled]="loginForm.invalid" type="submit" class="btn mt-3 w-100 btn-success">LogIn</button>
             <div class="card-footer text-center mt-3">
               <a routerLink="" class="nav-link text-danger">Forget Password</a>
               <span class="text-muted">Don't Have an Account? <a class="nav-link d-inline text-success" routerLink="/register">Register</a></span>
