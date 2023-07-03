@@ -9,6 +9,12 @@ export class ProductService {
 
   constructor(private _httpClient:HttpClient) { }
 
+  getCategories(): Observable<any>{
+   return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/categories`)
+  }
+  // getSpecificCategory(id:string): Observable<any>{
+  //  return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/categories/${id}`)
+  // }
   getAllProduct(): Observable<any>{
    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/products`)
   }
