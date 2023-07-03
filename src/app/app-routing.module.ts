@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductsComponent } from './components/products/products.component';
 import { authGuard } from './shared/guard/auth.guard';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'profile' ,  canActivate:[authGuard],component: ProfileComponent, title: 'Profile' },
   { path: 'catigory',  canActivate:[authGuard],component: CatigoryComponent, title: 'Catigory' },
   { path: 'products',  canActivate:[authGuard],component: ProductsComponent, title: 'Products' },
+  { path: 'productDetails/:id',  canActivate:[authGuard],component: ProductDetailsComponent, title: 'ProductDetails' },
   { path: 'brands',  canActivate:[authGuard], component: BrandsComponent, title: 'Brands' },
   { path: 'login', component: LogInComponent, title: 'LogIn' },
   { path: 'register', component: RegisterComponent, title: 'Register' },

@@ -11,13 +11,13 @@
       </ng-template>
   </p-card>
 </div> -->
-<div class="card mx-2">
+<div (click)="goDetails(product.id)" class="card  mx-2">
+
+
   <div class="position-relative">
     <img [src]="product.imageCover" class="card-img-top shadow-sm" alt="..." />
-    <button class="btn position-absolute p-3 text-success  top-0 end-0">
-      <i
-        class="pi pi-heart fs-4 "
-      ></i>
+    <button class="btn position-absolute p-3 text-success top-0 end-0">
+      <i class="pi pi-heart fs-4"></i>
     </button>
   </div>
   <div class="card-body">
@@ -39,9 +39,12 @@
         ><span> ({{ product.ratingsAverage }})</span>
       </div>
     </div>
-    <a routerLink="" class="btn w-100 rounded-pill btn-outline-success">
-      <i class="pi pi-cart-plus"></i>
-      Add To Cart</a
+    <button
+      (click)="stopPropgation($event)"
+      class="btn w-100 btn-outline-success"
     >
+      <i class="pi pi-cart-plus"></i>
+      Add To Cart
+    </button>
   </div>
 </div>

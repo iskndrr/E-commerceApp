@@ -32,6 +32,8 @@ import {HttpClientModule} from '@angular/common/http'
 import { ToastModule } from 'primeng/toast';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { GalleriaModule } from 'primeng/galleria';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { FeaturedProductComponent } from './components/featured-product/featured
     NotfoundComponent,
     ProductCardComponent,
     FeaturedProductComponent,
+    ProductDetailsComponent,
 
   ],
   imports: [
@@ -65,6 +68,7 @@ import { FeaturedProductComponent } from './components/featured-product/featured
     ReactiveFormsModule,
     HttpClientModule,
     ToastModule,
+    GalleriaModule
 
   ],
   providers: [],

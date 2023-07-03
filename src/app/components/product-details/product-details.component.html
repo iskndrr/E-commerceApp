@@ -1,0 +1,136 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-5">
+      <img class="w-100" [src]="productDetails.imageCover" alt="" />
+    </div>
+    <div class="col-7">
+      <div>
+        <h2 class="fw-bold m-0">{{ productDetails.title }}</h2>
+        <p class="small m-0">{{ productDetails.description }}</p>
+      </div>
+      <hr />
+      <div>
+        <h4 class="fw-semibold">{{ productDetails.price | currency }}</h4>
+      </div>
+      <hr />
+      <div class="d-flex gap-3">
+        <button class="btn w-25 btn-success">Buy Now</button>
+        <button class="btn w-25 btn-outline-success">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="card">
+  <p-galleria [value]="productDetails.images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+      <ng-template pTemplate="item" let-item>
+          <img [src]="productDetails.imageCover" style="width: 100%;" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+              <img class="w-100" [src]="item" />
+          </div>
+      </ng-template>
+  </p-galleria>
+</div> -->
+
+<div class="container my-3">
+  <div class="row gy-3">
+    <div class="col-sm-5">
+      <div class="card rounded-top-5">
+        <p-galleria
+          [value]="productDetails.images"
+          [autoPlay]="true"
+          [circular]="true"
+          [responsiveOptions]="responsiveOptions"
+          [numVisible]="5"
+          [containerStyle]="{ width: '100%' }"
+        >
+          <ng-template pTemplate="item" let-item>
+            <div class="card-header rounded-5 bg-success-subtle">
+              <img [src]="item" class="rounded-5 w-100" />
+            </div>
+          </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+              <img class="w-100" [src]="item" />
+            </div>
+          </ng-template>
+        </p-galleria>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="card rounded-top-5">
+        <div
+          class="caption bg-success-subtle text-dark rounded-top-5 card-header"
+        >
+          <h2 class="m-0">{{ productDetails.title }}</h2>
+          <p class="small fw-light m-0">{{ productDetails.description }}</p>
+        </div>
+        <div class="card-body">
+          <h3 class="m-0 fs-4 fw-semibold">
+            <span class="text-success fs-3 fw-medium me-1">price:</span
+            >{{ productDetails.price | currency }}
+          </h3>
+          <hr />
+          <div class="d-flex align-items-center">
+            <div
+              class="btn border rounded-pill me-4 d-flex w-50 justify-content-between align-items-center"
+            >
+              <button class="btn fs-5 text-danger">-</button>
+              <span class="text-success fs-5 fw-medium">1</span>
+              <button class="btn fs-5 text-success">+</button>
+            </div>
+            <p class="m-0 fw-light">
+              Only
+              <span class="text-warning fw-medium">{{
+                productDetails.quantity
+              }}</span>
+              left! <br />
+              Don't miss it.
+            </p>
+          </div>
+          <hr />
+          <div class="d-flex">
+            <button class="btn w-50 me-3 fs-4 rounded-pill btn-success">
+              Buy Now
+            </button>
+            <button class="btn w-50 rounded-pill btn-outline-success">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card my-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-8 align-self-center">
+              <h4 class="m-0 fs-5 fw-light">
+                <span class="fs-4 text-success fs-6 fw-normal me-1"
+                  >Category:</span
+                >{{ productDetails.category.name }}
+              </h4>
+              <div class="my-3">
+                <h4 class="m-0 fs-4">
+                  <span class="me-1 text-success">Rating Average: </span>
+                  <i class="pi fs-5 pi-heart-fill text-warning"
+                    >{{ productDetails.ratingsAverage
+                    }}<span class="text-muted fw-lighter fst-italic"
+                      >({{ productDetails.ratingsQuantity }})</span
+                    ></i
+                  >
+                </h4>
+              </div>
+              <hr class="w-75" />
+            </div>
+            <div class="col-4">
+              <img class="w-100" [src]="productDetails.brand.image" alt="" />
+            </div>
+            <button class="btn fs-5 btn-outline-success w-100">Browse similar product</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

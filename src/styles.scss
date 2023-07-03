@@ -5,6 +5,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -16,4 +17,28 @@ body {
   height: 0.6rem;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 50%;
+  display: none;
+}
+.p-galleria .p-galleria-thumbnail-container{
+  background-color: #fefefe;
+  max-height: 10rem;
+  // height: 5rem;
+  // width: 10rem;
+}
+
+.p-galleria-item-wrapper{
+  object-fit: cover;
+}
+.p-galleria-item-wrapper img{
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  // background-color: #198759;
+}
+.p-galleria-thumbnail-wrapper img	{
+object-fit: cover;
+aspect-ratio: 1/1;
+}
+.p-carousel img{
+  aspect-ratio: 1/1;
+
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 
@@ -8,6 +9,21 @@ import { ProductService } from 'src/app/shared/services/product.service';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent {
-  hearts : number[] = [1,2]
+  constructor(private _router:Router){}
+  hearts: number[] = [1, 2];
   @Input() product: Product = {} as Product;
+
+  stopPropgation(e:any) {
+    alert("done")
+    console.log(e);
+    e.stopPropagation();
+
+  }
+
+  goDetails(id:string){
+    // alert("hiiiiii")
+    console.log(id);
+    this._router.navigate([`/productDetails/${id}`])
+
+  }
 }
