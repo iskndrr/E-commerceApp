@@ -1,1 +1,37 @@
-<p>brands works!</p>
+<div class="d-flex justify-content-between align-items-center">
+  <h2 class="text-dark fw-bold">Choose By Brand:</h2>
+  <!-- <span class="text-muted"
+    ><a class="nav-link text-success" routerLink="/products">See all</a></span
+  > -->
+</div>
+
+<!-- <div class="row">
+  <div class="col-1" *ngFor="let brand of brands.slice(0, 12)">
+    <div class="card">
+      <div class="card-img-top">
+        <img class="w-100" [src]="brand.image" alt="" />
+      </div>
+    </div>
+    {{ brand.name }}
+  </div>
+</div> -->
+
+<p-carousel
+  [value]="brands"
+  [numVisible]="12"
+  [numScroll]="1"
+
+  [circular]="true"
+  [responsiveOptions]="responsiveOptions"
+  autoPlayInterval="1000"
+  class=""
+>
+  <ng-template class="" let-product pTemplate="item">
+    <div  class="card border-success me-2">
+      <div class="card-img-top position-relative">
+        <img loading="lazy" class="w-100 object-fit-contain ratio-1x1" [src]="product.image" alt="" />
+
+      </div>
+    </div>
+    </ng-template>
+</p-carousel>

@@ -37,7 +37,7 @@
 <div class="container my-3">
   <div class="row gy-3">
     <div class="col-sm-5">
-      <div class="card rounded-top-5">
+      <div class="card  border-success rounded-top-5">
         <p-galleria
           [value]="productDetails.images"
           [autoPlay]="true"
@@ -53,14 +53,14 @@
           </ng-template>
           <ng-template pTemplate="thumbnail" let-item>
             <div class="grid grid-nogutter justify-content-center">
-              <img class="w-100" [src]="item" />
+              <img loading="lazy" class="w-100" [src]="item" />
             </div>
           </ng-template>
         </p-galleria>
       </div>
     </div>
     <div class="col-sm-7">
-      <div class="card rounded-top-5">
+      <div class="card  border-success rounded-top-5">
         <div
           class="caption bg-success-subtle text-dark rounded-top-5 card-header"
         >
@@ -101,7 +101,7 @@
           </div>
         </div>
       </div>
-      <div class="card my-2">
+      <div class="card  border-success my-2">
         <div class="card-body">
           <div class="row">
             <div class="col-8 align-self-center">
@@ -124,7 +124,7 @@
               <hr class="w-75" />
             </div>
             <div class="col-4">
-              <img class="w-100" [src]="productDetails.brand.image" alt="" />
+              <img loading="lazy" class="w-100" [src]="productDetails.brand.image" alt="" />
             </div>
             <button disabled class="btn fs-5 btn-outline-success w-100">Browse similar product</button>
 

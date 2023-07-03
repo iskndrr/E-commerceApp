@@ -68,8 +68,8 @@ import { GalleriaModule } from 'primeng/galleria';
     ReactiveFormsModule,
     HttpClientModule,
     ToastModule,
-    GalleriaModule
-
+    GalleriaModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

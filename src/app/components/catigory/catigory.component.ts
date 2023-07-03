@@ -22,12 +22,12 @@ export class CatigoryComponent implements OnInit {
       },
       {
         breakpoint: '991px',
-        numVisible: 4,
+        numVisible: 5,
         numScroll: 1,
       },
       {
         breakpoint: '767px',
-        numVisible: 3,
+        numVisible: 2,
         numScroll: 1,
       },
     ];

@@ -17,17 +17,17 @@ export class FeaturedProductComponent implements OnInit {
     this.responsiveOptions = [
       {
         breakpoint: '1199px',
-        numVisible: 3,
+        numVisible: 4,
         numScroll: 1,
       },
       {
         breakpoint: '991px',
-        numVisible: 2,
+        numVisible: 3,
         numScroll: 1,
       },
       {
         breakpoint: '767px',
-        numVisible: 2,
+        numVisible: 1,
         numScroll: 1,
       },
     ];

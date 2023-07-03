@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-success-subtle">
   <div class="container">
-    <a class="navbar-brand text-success" routerLink="/home">Shop Cart</a>
+    <a class="navbar-brand text-success" routerLink="/home">
+      <i class="pi fs-4 pi-shopping-cart"> ShoppingCart</i>
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -23,14 +25,14 @@
             >Home</a
           >
         </li>
-        <li class="nav-item mx-2">
+        <!-- <li class="nav-item mx-2">
           <a class="nav-link" routerLink="/brands"> Brands</a>
-        </li>
+        </li> -->
         <li class="nav-item mx-2">
-          <a class="nav-link " routerLink="/products"> Products</a>
+          <a class="nav-link" routerLink="/products"> Products</a>
         </li>
         <li class="nav-item dropdown">
-          <a
+          <!-- <a
             class="nav-link dropdown-toggle"
             routerLink=""
             role="button"
@@ -38,25 +40,24 @@
             aria-expanded="false"
           >
             Catigories
-          </a>
-          <ul class="dropdown-menu">
+          </a> -->
+          <!-- <ul class="dropdown-menu">
             <li><a class="dropdown-item" routerLink="">Action</a></li>
             <li><a class="dropdown-item" routerLink="">Another action</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li>
               <a class="dropdown-item" routerLink="">Something else here</a>
             </li>
-          </ul>
+          </ul> -->
         </li>
       </ul>
 
-
-        <!-- <input
-          class="form-control w-50 mx-auto"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        /> -->
+      <input
+        class="form-control bg-transparent border border-success w-50 mx-auto"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li *ngIf="isLogedIn" class="nav-item mx-2">
@@ -77,11 +78,10 @@
         <li *ngIf="!isLogedIn" class="nav-item mx-2">
           <a class="nav-link text-success" routerLink="/register">
             <i class="pi pi-user-plus" style="font-size: 1.2rem"> Register</i>
-
           </a>
         </li>
         <li (click)="logOut()" *ngIf="isLogedIn" class="nav-item mx-2">
-          <a routerLink="" class="nav-link text-danger" >
+          <a routerLink="" class="nav-link text-danger">
             <i class="pi pi-sign-out" style="font-size: 1.1rem"> LogOut</i>
           </a>
         </li>
@@ -89,3 +89,5 @@
     </div>
   </div>
 </nav>
+
+<p-toast></p-toast>

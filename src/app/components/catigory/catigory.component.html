@@ -14,10 +14,10 @@
   class=""
 >
   <ng-template class="" let-product pTemplate="item">
-    <div (click)="getCatProd(product._id)" class="card me-2">
+    <div (click)="getCatProd(product._id)" class="card  border-success me-2">
       <div class="card-img-top position-relative">
-        <img class="w-100" [src]="product.image" alt="" />
-        <div class="text-center bg-success-subtle w-100">
+        <img loading="lazy" class="w-100 rounded-top" [src]="product.image" alt="" />
+        <div class="text-center rounded-bottom bg-success-subtle w-100">
           <span class="small fst-italic fw-lighter text-dark">{{
             product.name
           }}</span>
