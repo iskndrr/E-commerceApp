@@ -25,9 +25,18 @@
 </div> -->
 
 <div class="container my-3">
+
+    <input
+      [(ngModel)]="searchTerm"
+      class="form-control my-4 bg-transparent border border-success w-75 mx-auto"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+
   <h2 class="text-dark fw-bold mx-2">All Products :</h2>
   <div class="row gy-4">
-    <div class="col-lg-3 col-md-4 col-6" *ngFor="let product of allProduct">
+    <div class="col-lg-3 col-md-4 col-6" *ngFor="let product of allProduct | search : searchTerm">
       <app-product-card [product]="product"></app-product-card>
     </div>
   </div>

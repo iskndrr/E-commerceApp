@@ -1,4 +1,4 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,17 +23,18 @@ import { CatigoryComponent } from './components/catigory/catigory.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { InputTextModule } from 'primeng/inputtext';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { GalleriaModule } from 'primeng/galleria';
+import { SearchPipe } from './shared/pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,7 @@ import { GalleriaModule } from 'primeng/galleria';
     ProductCardComponent,
     FeaturedProductComponent,
     ProductDetailsComponent,
-
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +70,9 @@ import { GalleriaModule } from 'primeng/galleria';
     HttpClientModule,
     ToastModule,
     GalleriaModule,
-    
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

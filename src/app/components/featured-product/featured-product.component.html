@@ -1,26 +1,19 @@
-<!-- <div class="container">
-  <div class="row gy-3">
-    <div class="col-2" *ngFor="let product of allProduct">
-      <app-product-card [product]="product"></app-product-card>
-    </div>
-  </div>
 
-</div> -->
 <div class="d-flex justify-content-between align-items-center">
   <h2 class="text-dark fw-bold">Today Best Deals For You!</h2>
-<span class="text-muted"><a class="nav-link text-success" routerLink="/products">See all</a></span>
+  <span class="text-muted"
+    ><a class="nav-link text-success" routerLink="/products">See all</a></span
+  >
 </div>
 <p-carousel
-  [value]="allProduct.slice(0, 10)"
+  [value]="allProduct.slice(0, 10) "
   [numVisible]="4"
   [numScroll]="1"
   [circular]="true"
   [responsiveOptions]="responsiveOptions"
   autoPlayInterval="1000"
 >
-
-  <ng-template class="" let-product pTemplate="item">
-
+  <ng-template class="" let-product  pTemplate="item">
     <app-product-card class="" [product]="product"></app-product-card>
 
     <!-- <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">

@@ -1,43 +1,7 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-5">
-      <img class="w-100" [src]="productDetails.imageCover" alt="" />
-    </div>
-    <div class="col-7">
-      <div>
-        <h2 class="fw-bold m-0">{{ productDetails.title }}</h2>
-        <p class="small m-0">{{ productDetails.description }}</p>
-      </div>
-      <hr />
-      <div>
-        <h4 class="fw-semibold">{{ productDetails.price | currency }}</h4>
-      </div>
-      <hr />
-      <div class="d-flex gap-3">
-        <button class="btn w-25 btn-success">Buy Now</button>
-        <button class="btn w-25 btn-outline-success">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="card">
-  <p-galleria [value]="productDetails.images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
-      <ng-template pTemplate="item" let-item>
-          <img [src]="productDetails.imageCover" style="width: 100%;" />
-      </ng-template>
-      <ng-template pTemplate="thumbnail" let-item>
-          <div class="grid grid-nogutter justify-content-center">
-              <img class="w-100" [src]="item" />
-          </div>
-      </ng-template>
-  </p-galleria>
-</div> -->
-
 <div class="container my-3">
   <div class="row gy-3">
     <div class="col-sm-5">
-      <div class="card  border-success rounded-top-5">
+      <div class="card border-success ">
         <p-galleria
           [value]="productDetails.images"
           [autoPlay]="true"
@@ -47,9 +11,9 @@
           [containerStyle]="{ width: '100%' }"
         >
           <ng-template pTemplate="item" let-item>
-            <div class="card-header rounded-5 bg-success-subtle">
-              <img [src]="item" class="rounded-5 w-100" />
-            </div>
+
+              <img [src]="item" class="rounded-bottom-4 border-bottom border-success shadow-sm card-img-top w-100" />
+
           </ng-template>
           <ng-template pTemplate="thumbnail" let-item>
             <div class="grid grid-nogutter justify-content-center">
@@ -60,9 +24,9 @@
       </div>
     </div>
     <div class="col-sm-7">
-      <div class="card  border-success rounded-top-5">
+      <div class="card border-success ">
         <div
-          class="caption bg-success-subtle text-dark rounded-top-5 card-header"
+          class="caption bg-success-subtle text-dark rounded-bottom-4 card-header"
         >
           <h2 class="m-0">{{ productDetails.title }}</h2>
           <p class="small fw-light m-0">{{ productDetails.description }}</p>
@@ -101,7 +65,7 @@
           </div>
         </div>
       </div>
-      <div class="card  border-success my-2">
+      <div class="card border-success my-2">
         <div class="card-body">
           <div class="row">
             <div class="col-8 align-self-center">
@@ -124,10 +88,16 @@
               <hr class="w-75" />
             </div>
             <div class="col-4">
-              <img loading="lazy" class="w-100" [src]="productDetails.brand.image" alt="" />
+              <img
+                loading="lazy"
+                class="w-100"
+                [src]="productDetails.brand.image"
+                alt=""
+              />
             </div>
-            <button disabled class="btn fs-5 btn-outline-success w-100">Browse similar product</button>
-
+            <button disabled class="btn fs-5 btn-outline-success w-100">
+              Browse similar product
+            </button>
           </div>
         </div>
       </div>

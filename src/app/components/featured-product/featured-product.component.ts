@@ -10,7 +10,6 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class FeaturedProductComponent implements OnInit {
   allProduct: Product[] = [];
   responsiveOptions: any[] | undefined;
-
   constructor(private _productService: ProductService) {}
   ngOnInit(): void {
     this.getProduct();
