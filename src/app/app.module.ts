@@ -35,6 +35,7 @@ import { FeaturedProductComponent } from './components/featured-product/featured
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { SearchPipe } from './shared/pipes/search.pipe';
+import { TooltipModule } from 'primeng/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { SearchPipe } from './shared/pipes/search.pipe';
     HttpClientModule,
     ToastModule,
     GalleriaModule,
-    FormsModule
+    FormsModule,
+    TooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

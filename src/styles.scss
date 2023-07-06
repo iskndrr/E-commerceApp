@@ -25,7 +25,10 @@ body {
   // height: 5rem;
   // width: 10rem;
 }
-
+.p-tooltip-text{
+  background-color: #D1E7DD !important;
+  color: #000 !important;
+}
 .p-galleria-item-wrapper{
   object-fit: cover;
 }

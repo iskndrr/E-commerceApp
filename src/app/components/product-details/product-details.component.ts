@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { MessageService } from 'primeng/api';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
+  providers: [MessageService],
 })
 export class ProductDetailsComponent implements OnInit {
   productId: string = '';
@@ -15,31 +18,13 @@ export class ProductDetailsComponent implements OnInit {
   position: any = 'left';
   constructor(
     private _activatedRoute: ActivatedRoute,
+    private messageService: MessageService,
+    private _cartService: CartService,
     private _productService: ProductService
   ) {}
   ngOnInit(): void {
     this.getId();
     this.getProducById();
-
-
-    // this.positionOptions = [
-    //     {
-    //         label: 'Bottom',
-    //         value: 'bottom'
-    //     },
-    //     {
-    //         label: 'Top',
-    //         value: 'top'
-    //     },
-    //     {
-    //         label: 'Left',
-    //         value: 'left'
-    //     },
-    //     {
-    //         label: 'Right',
-    //         value: 'right'
-    //     }
-    // ];
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -55,7 +40,25 @@ export class ProductDetailsComponent implements OnInit {
       },
     ];
   }
-
+  
+  addToCart(e: any, id: string) {
+    this.stopPropgation(e);
+    this._cartService.addToCart(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.showSuccess();
+      },
+      error: (err) => {
+        console.log(err);
+        this.showError(err);
+      },
+    });
+  }
+  stopPropgation(e: any) {
+    // alert('done');
+    // console.log(e);
+    e.stopPropagation();
+  }
   getId() {
     this._activatedRoute.paramMap.subscribe({
       next: (res: any) => {
@@ -75,6 +78,18 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-
-
+  showError(err: string) {
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: err,
+    });
+  }
+  showSuccess() {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Product added successfully to your cart',
+    });
+  }
 }

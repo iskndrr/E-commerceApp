@@ -1,17 +1,21 @@
-
 <div (click)="goDetails(product.id)" class="card border-success mx-2">
   <div class="position-relative">
     <img
       loading="lazy"
       [src]="product.imageCover"
       class="card-img-top rounded-bottom-4 border-bottom border-success shadow-sm"
-      alt="..."
+      [alt]="product.title"
     />
     <button class="btn position-absolute p-3 text-success top-0 end-0">
       <i class="pi pi-heart fs-4"></i>
     </button>
   </div>
-  <div class="card-body">
+  <div
+    [pTooltip]="product.title"
+    tooltipPosition="top"
+    placeholder="Top"
+    class="card-body"
+  >
     <div
       class="d-flex my-2 fst-italic align-items-center justify-content-between"
     >
@@ -19,7 +23,9 @@
         {{ product.title.split(" ").splice(0, 2).join(" ") }}
       </h5>
 
-      <span class="text-muted fs-6 m-0">{{ product.price | currency }}</span>
+      <span class="text-muted fs-6 m-0">{{
+        product.price | currency : "EGP "
+      }}</span>
     </div>
     <div class="d-flex my-3 justify-content-between align-items-center">
       <p class="card-text m-0 text-muted">
@@ -30,8 +36,9 @@
         ><span> ({{ product.ratingsAverage }})</span>
       </div>
     </div>
+
     <button
-      (click)="stopPropgation($event)"
+      (click)="addToCart($event, product.id)"
       class="btn w-100 btn-outline-success"
     >
       <i class="pi pi-cart-plus"></i>
@@ -39,3 +46,9 @@
     </button>
   </div>
 </div>
+<p-toast
+  [showTransformOptions]="'translateY(100%)'"
+  [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'2000ms'"
+  [showTransformOptions]="'translateX(100%)'"
+></p-toast>

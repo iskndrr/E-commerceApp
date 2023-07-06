@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'brands',  canActivate:[authGuard], component: BrandsComponent, title: 'Brands' },
   { path: 'login', component: LogInComponent, title: 'LogIn' },
   { path: 'register', component: RegisterComponent, title: 'Register' },
+  { path: 'cart', loadChildren: () => import('./cart/cart.module').then(m => m.CartModule) },
   {path:"**", component:NotfoundComponent,title:"Error 404"}
 ];
 

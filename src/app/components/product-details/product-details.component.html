@@ -1,7 +1,7 @@
 <div class="container my-3">
   <div class="row gy-3">
     <div class="col-sm-5">
-      <div class="card border-success ">
+      <div class="card border-success">
         <p-galleria
           [value]="productDetails.images"
           [autoPlay]="true"
@@ -11,9 +11,10 @@
           [containerStyle]="{ width: '100%' }"
         >
           <ng-template pTemplate="item" let-item>
-
-              <img [src]="item" class="rounded-bottom-4 border-bottom border-success shadow-sm card-img-top w-100" />
-
+            <img
+              [src]="item"
+              class="rounded-bottom-4 border-bottom border-success shadow-sm card-img-top w-100"
+            />
           </ng-template>
           <ng-template pTemplate="thumbnail" let-item>
             <div class="grid grid-nogutter justify-content-center">
@@ -24,7 +25,7 @@
       </div>
     </div>
     <div class="col-sm-7">
-      <div class="card border-success ">
+      <div class="card border-success">
         <div
           class="caption bg-success-subtle text-dark rounded-bottom-4 card-header"
         >
@@ -59,7 +60,10 @@
             <button class="btn w-50 me-3 fs-5 rounded-pill btn-success">
               Buy Now
             </button>
-            <button class="btn w-50 rounded-pill btn-outline-success">
+            <button
+              (click)="addToCart($event, productDetails.id)"
+              class="btn w-50 rounded-pill btn-outline-success"
+            >
               Add to Cart
             </button>
           </div>
@@ -104,3 +108,9 @@
     </div>
   </div>
 </div>
+<p-toast
+  [showTransformOptions]="'translateY(100%)'"
+  [showTransitionOptions]="'2000ms'"
+  [hideTransitionOptions]="'2000ms'"
+  [showTransformOptions]="'translateX(100%)'"
+></p-toast>
