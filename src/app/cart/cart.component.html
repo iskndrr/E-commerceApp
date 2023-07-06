@@ -1,1 +1,133 @@
-<p>cart works!</p>
+<div class="container my-3">
+  <div class="row gy-3">
+    <div class="col-lg-7">
+      <div class="card">
+        <div
+          class="card-body d-flex justify-content-between align-items-center"
+        >
+          <h2 class="m-0">
+            My Cart :
+            <span class="text-bg-success opacity-50 px-2 py-1 rounded-circle">{{
+              cart.numOfCartItems
+            }}</span>
+          </h2>
+          <button (click)="deleteCart()" class="btn text-danger">Remove All</button>
+        </div>
+      </div>
+      <hr class="" />
+      <div class="row" *ngFor="let cart of cart.data.products | filterCart">
+        <div class="col-3">
+          <div class="card">
+            <img
+              class="w-100 card-img-top rounded"
+              [src]="cart.product.imageCover"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="d-flex flex-column justify-content-between h-100">
+            <div class="mb-2">
+              <h3 class="m-0 text-success fs-4">{{ cart.product.title }}</h3>
+              <br />
+              <span class="m-0 fw-lighter text-muted">{{
+                cart.product.category.name
+              }}</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-end">
+              <div class="d-flex flex-column justify-content-around h-100">
+                <h4 class="m-0 mb-2 text-success fw-bold fs-3">
+                  {{ cart.price | currency : "EGP " }}
+                </h4>
+                <div class="d-flex my-2 align-items-center">
+                  <button (click)="updateCart(cart.product._id,cart.count - 1)" class="btn fw-bolder btn-outline-success">-</button>
+                  <span class="fs-4 mx-3">{{ cart.count }}</span>
+                  <button  (click)="updateCart(cart.product._id,cart.count + 1)" class="btn btn-outline-success">+</button>
+                </div>
+              </div>
+              <div class="card my-2 border-0 w-25">
+                <img [src]="cart.product.brand.image" class="w-100" alt="" />
+              </div>
+            </div>
+            <div class="d-flex mt-2 justify-content-between align-items-center">
+              <h5 class="m-0 fs-4">
+                Only
+                <span class="text-warning">{{ cart.product.quantity }}</span>
+                left
+              </h5>
+              <button (click)="removProduct(cart.product._id)" class="btn btn-outline-danger w-25">Remove</button>
+            </div>
+          </div>
+        </div>
+        <hr class="w-75 mx-auto my-3" />
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <h3>Order Summary</h3>
+          <div
+            class="d-flex text-muted justify-content-between align-items-center"
+            *ngFor="let cart of cart.data.products"
+          >
+            <span class="m-0">
+              <span class="text-success small">x{{ cart.count }}</span>
+              {{ cart.product.title.split(" ").splice(0, 5).join(" ") }}</span
+            >
+            <span class="m-0">{{ cart.price | currency : "EGP " }}</span>
+          </div>
+          <hr />
+          <div>
+            <div
+              class="d-flex mb-3 text-muted justify-content-between align-items-center"
+            >
+              <h3 class="m-0">Delivery today with</h3>
+              <span>EGP 20,00</span>
+            </div>
+            <div class="d-flex mb-2 fw-medium align-items-center">
+              <span class="text-muted me-1"><i class="pi pi-truck"></i></span>
+              Skinny Express
+            </div>
+            <div class="d-flex fw-medium align-items-center">
+              <span class="text-muted me-1">
+                <i class="pi pi-map-marker"></i>
+              </span>
+              <span class="text-muted">Deliver to </span> Alexandria,Eg.
+            </div>
+          </div>
+          <hr />
+          <div
+            class="d-flex tex-muted justify-content-between align-items-center"
+          >
+            <div>
+              <h3 class="m-0">Amount</h3>
+              <h3 class="m-0">Tax</h3>
+            </div>
+            <div>
+              <span class="d-block">{{
+                cart.data.totalCartPrice | currency : "EGP "
+              }}</span>
+
+              <span>EGP 0,00</span>
+            </div>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="m-0 fw-medium">Order Total</h3>
+            <span class="text-success fw-medium">{{
+              cart.data.totalCartPrice | currency : "EGP "
+            }}</span>
+          </div>
+          <hr />
+          <input
+            type="text"
+            placeholder="Add coupon code here"
+            class="form-control border-success-subtle"
+          />
+          <button class="btn btn-success mt-3 w-100">CheckOut</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
