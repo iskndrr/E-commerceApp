@@ -36,6 +36,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { GalleriaModule } from 'primeng/galleria';
 import { SearchPipe } from './shared/pipes/search.pipe';
 import { TooltipModule } from 'primeng/tooltip';
+import { CheckOutComponent } from './components/check-out/check-out.component';
+import { AllordersComponent } from './components/allorders/allorders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,8 @@ import { TooltipModule } from 'primeng/tooltip';
     FeaturedProductComponent,
     ProductDetailsComponent,
     SearchPipe,
+    CheckOutComponent,
+    AllordersComponent,
   ],
   imports: [
     BrowserModule,

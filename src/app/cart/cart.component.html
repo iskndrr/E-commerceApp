@@ -125,7 +125,7 @@
             placeholder="Add coupon code here"
             class="form-control border-success-subtle"
           />
-          <button class="btn btn-success mt-3 w-100">CheckOut</button>
+          <button (click)="checkOut(cart.data._id)" class="btn btn-success mt-3 w-100">CheckOut</button>
         </div>
       </div>
     </div>

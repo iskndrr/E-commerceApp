@@ -5,7 +5,7 @@
     ><a class="nav-link text-success" routerLink="/products">See all</a></span
   >
 </div>
-<p-carousel
+<!-- <p-carousel
   [value]="allProduct.slice(0, 10) "
   [numVisible]="4"
   [numScroll]="1"
@@ -14,9 +14,8 @@
   autoPlayInterval="1000"
 >
   <ng-template class="" let-product  pTemplate="item">
-    <app-product-card class="" [product]="product"></app-product-card>
 
-    <!-- <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+     <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
       <div class="mb-3 bg-danger">
         <img
           [src]="product.imageCover"
@@ -41,6 +40,15 @@
           ></p-button>
         </div>
       </div>
-    </div> -->
+    </div>
   </ng-template>
-</p-carousel>
+</p-carousel> -->
+
+
+
+  <div class="row gy-4">
+    <div class="col-lg-3 col-md-4 col-6" *ngFor="let product of allProduct.slice(0,12) ">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  </div>
+

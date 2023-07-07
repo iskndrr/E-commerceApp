@@ -1,0 +1,58 @@
+<div class="container my-3">
+  <h2 class="text-center text-success my-3">Shipping Info</h2>
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="shippingAddress" class="w-75 mx-auto" (ngSubmit)="checkOut()">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="city"
+            id="city"
+            placeholder="Alex"
+          />
+          <label for="city">City</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="tel"
+            class="form-control"
+            formControlName="phone"
+            id="phone"
+            placeholder="+20xxxxxxxxxx"
+          />
+          <label for="phone">Phone</label>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            formControlName="details"
+            id="details"
+
+            rows="10"
+          ></textarea>
+          <label for="details">Details</label>
+        </div>
+        <p-toast
+          [showTransformOptions]="'translateY(100%)'"
+          [showTransitionOptions]="'500ms'"
+          [hideTransitionOptions]="'500ms'"
+          [showTransformOptions]="'translateX(100%)'"
+        ></p-toast>
+        <button
+          [disabled]="shippingAddress.invalid"
+          type="submit"
+          class="btn mt-3 w-100 btn-success"
+        >
+          <i
+            *ngIf="isLoading"
+            class="pi pi-spin pi-spinner"
+            style="font-size: 2rem"
+          ></i>
+          <span *ngIf="!isLoading">CheckOut</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
