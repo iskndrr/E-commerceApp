@@ -15,10 +15,10 @@ export class RegisterComponent {
   constructor(
     private _authService: AuthService,
     private messageService: MessageService,
-    private _router:Router
+    private _router: Router
   ) {
-    if(localStorage.getItem('userToken') != null){
-      _router.navigate(['/home'])
+    if (localStorage.getItem('userToken') != null) {
+      _router.navigate(['/home']);
     }
   }
   registerForm: FormGroup = new FormGroup({
@@ -38,7 +38,9 @@ export class RegisterComponent {
     phone: new FormControl('', [
       Validators.required,
       Validators.pattern(/^01[0125][0-9]{8}$/),
-    ]),
+    ])
+  },{
+    validators: this.checkRepassword
   });
 
   showError(err: string) {
@@ -64,7 +66,7 @@ export class RegisterComponent {
           console.log(res);
           this.isLoading = false;
           this.showSuccess();
-          this._router.navigate(["/login"])
+          this._router.navigate(['/login']);
         },
         error: (err) => {
           console.log(err);
@@ -76,6 +78,18 @@ export class RegisterComponent {
           console.log('complete');
         },
       });
+    }
+  }
+  checkRepassword(registerForm: any) {
+    let passwordControl = registerForm.get('password');
+    let rePasswordControl = registerForm.get('rePassword');
+    if (passwordControl.value == rePasswordControl.value) {
+      return null;
+    } else {
+      rePasswordControl.setErrors({
+        rePassowrdNotMatch: 'Password and rePassword should be match',
+      });
+      return { rePassowrdNotMatch: 'Password and rePassword should be match' };
     }
   }
 }

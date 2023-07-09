@@ -128,6 +128,12 @@
                 rePassword is required
               </p>
               <p
+                *ngIf="registerForm.get('rePassword')?.getError('rePassowrdNotMatch')"
+                class="m-0"
+              >
+                rePassword Not Match
+              </p>
+              <p
                 *ngIf="registerForm.get('rePassword')?.getError('pattern')"
                 class="m-0"
               >
