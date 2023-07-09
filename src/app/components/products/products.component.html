@@ -11,7 +11,7 @@
 
   <h2 class="text-dark fw-bold mx-2">All Products :</h2>
   <div class="row gy-4">
-    <div class="col-lg-3 col-md-4 col-6" *ngFor="let product of allProduct | search : searchTerm">
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of allProduct | search : searchTerm">
       <app-product-card [product]="product"></app-product-card>
     </div>
   </div>
