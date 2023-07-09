@@ -47,11 +47,11 @@ export class CartService {
   checkOut(id: string, shippingAddress: any): Observable<any> {
     this.token = localStorage.getItem('userToken');
     return this._httpClient.post(
-      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://localhost:4200`,
+      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://iskndrr.github.io/E-commerceApp/`,
       {
         shippingAddress: shippingAddress,
       },
-      
+
     );
   }
 }
