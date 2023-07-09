@@ -39,6 +39,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { HttpInterceptorInterceptor } from './shared/http-interceptor.interceptor';
+import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { HttpInterceptorInterceptor } from './shared/http-interceptor.intercepto
     SearchPipe,
     CheckOutComponent,
     AllordersComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
