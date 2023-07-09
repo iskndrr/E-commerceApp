@@ -44,11 +44,11 @@ export class ProductCardComponent {
     this._router.navigate([`/productDetails/${id}`]);
   }
 
-  showError(err: string) {
+  showError(err: any) {
     this.messageService.add({
       severity: 'error',
       summary: 'Error',
-      detail: err,
+      detail: err.error.message,
     });
   }
   showSuccess() {

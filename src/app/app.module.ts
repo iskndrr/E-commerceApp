@@ -28,7 +28,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatInputModule } from '@angular/material/input';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
@@ -38,6 +38,7 @@ import { SearchPipe } from './shared/pipes/search.pipe';
 import { TooltipModule } from 'primeng/tooltip';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
+import { HttpInterceptorInterceptor } from './shared/http-interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +79,13 @@ import { AllordersComponent } from './components/allorders/allorders.component';
     FormsModule,
     TooltipModule,
   ],
-  providers: [],
+  providers: [
+   {
+    provide:HTTP_INTERCEPTORS,
+    useClass:HttpInterceptorInterceptor,
+    multi:true
+   }
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

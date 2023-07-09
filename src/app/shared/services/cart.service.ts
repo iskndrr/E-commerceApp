@@ -13,20 +13,12 @@ export class CartService {
     return this._httpClient.post(
       `https://ecommerce.routemisr.com/api/v1/cart`,
       { productId: id },
-      {
-        headers: {
-          token: `${this.token}`,
-        },
-      }
+
     );
   }
   getCart(): Observable<any> {
     this.token = localStorage.getItem('userToken');
-    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/cart`, {
-      headers: {
-        token: `${this.token}`,
-      },
-    });
+    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/cart`, );
   }
   updateCart(id: string, count: number): Observable<any> {
     this.token = localStorage.getItem('userToken');
@@ -35,33 +27,21 @@ export class CartService {
       {
         count: count,
       },
-      {
-        headers: {
-          token: `${this.token}`,
-        },
-      }
+
     );
   }
   removeProduct(id: string): Observable<any> {
     this.token = localStorage.getItem('userToken');
     return this._httpClient.delete(
       `https://ecommerce.routemisr.com/api/v1/cart/${id}`,
-      {
-        headers: {
-          token: `${this.token}`,
-        },
-      }
+
     );
   }
   deleteCart(): Observable<any> {
     this.token = localStorage.getItem('userToken');
     return this._httpClient.delete(
       `https://ecommerce.routemisr.com/api/v1/cart`,
-      {
-        headers: {
-          token: `${this.token}`,
-        },
-      }
+
     );
   }
   checkOut(id: string, shippingAddress: any): Observable<any> {
@@ -71,11 +51,7 @@ export class CartService {
       {
         shippingAddress: shippingAddress,
       },
-      {
-        headers: {
-          token: `${this.token}`,
-        },
-      }
+      
     );
   }
 }
